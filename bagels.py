@@ -16,24 +16,28 @@ def getSecretNum():
     # then just return the secretString
     return secretNumbers
 
-secretNumber=getSecretNum()
-clues=[]
+
+
 def getClues(guess,SecretNum):
+    
     """Returns a string with the pico, fermi, bagels clues for a guess
      and secret number pair."""
+    
     if guess==SecretNum:
      return 'You got it!'
+    clues=[]
     for i in range(len(guess)):
       if guess[i]==SecretNum[i]:
-        clues.append('Fermi') #Correct digit in the correct place
+        clues.append(' Fermi ') #Correct digit in the correct place
       elif guess[i] in SecretNum:
-        clues.append('Pico') # Correct digit in incorrect place
+        clues.append(' Pico ') # Correct digit in incorrect place
     if len(clues)==0:
-     clues.append('Bagels') #Incorrect digits
+     return 'Bagels' #Incorrect digits
     #Sort the clues into alphabetical order so their original order so it doesn't give information away.
-    clues.sort()
+    else:
+     clues.sort()
     # Make a single string from the list of string clues.
-    return ''.join(clues)
+     return ''.join(clues)
 
 
 # the main game loop.
